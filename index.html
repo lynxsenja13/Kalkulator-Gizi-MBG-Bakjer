@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>MBG Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Upload Foto Makanan</h2>
+
+<input type="file" id="upload" accept="image/*">
+
+<div id="preview-container">
+  <img id="preview">
+</div>
+
+<br>
+
+<button onclick="cropImage()">Crop</button>
+<button onclick="removeBg()">Remove Background</button>
+
+<br><br>
+
+<select id="template">
+  <option value="biru">Template Biru</option>
+  <option value="putih">Template Putih</option>
+</select>
+
+<button onclick="rotateImage()">Rotate</button>
+
+<br><br>
+
+<input type="text" id="namaMenu" placeholder="Nama Menu MBG">
+
+<textarea id="gizi" placeholder="Kandungan Gizi"></textarea>
+
+<br><br>
+
+<button onclick="generate()">Generate</button>
+
+<h3>Hasil:</h3>
+<canvas id="canvas"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
