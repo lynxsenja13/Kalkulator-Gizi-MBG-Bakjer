@@ -1,0 +1,14 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+
+#preview {
+  max-width: 300px;
+  margin-top: 10px;
+}
+
+canvas {
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
