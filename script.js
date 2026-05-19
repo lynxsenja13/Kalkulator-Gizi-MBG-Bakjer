@@ -29,79 +29,16 @@
   ) || [
 
   {
-    nama: "BALITA",
-    jumlah: 211,
-    hitungPenerima: false,
-    hitungMakan: true
-  },
-
-  {
-    nama: "BUMIL & BUSUI",
-    jumlah: 125,
-    hitungPenerima: false,
-    hitungMakan: true
-  },
-
-  {
-    nama: "SD YAS",
-    jumlah: 186,
+    nama: "Porsi Kecil",
+    jumlah: 1200,
     hitungPenerima: true,
     hitungMakan: true
   },
 
   {
-    nama: "SMP YAS",
-    jumlah: 630,
+    nama: "Porsi Besar",
+    jumlah: 1100,
     hitungPenerima: true,
-    hitungMakan: true
-  },
-
-  {
-    nama: "SMA YAS",
-    jumlah: 364,
-    hitungPenerima: true,
-    hitungMakan: true
-  },
-
-  {
-    nama: "SDN Awi Gombong",
-    jumlah: 1016,
-    hitungPenerima: true,
-    hitungMakan: true
-  },
-
-  {
-    nama: "Guru & Tendik SD YAS",
-    jumlah: 17,
-    hitungPenerima: false,
-    hitungMakan: true
-  },
-
-  {
-    nama: "Guru & Tendik SMP YAS",
-    jumlah: 35,
-    hitungPenerima: false,
-    hitungMakan: true
-  },
-
-  {
-    nama: "Guru & Tendik SMA YAS",
-    jumlah: 37,
-    hitungPenerima: false,
-    hitungMakan: true
-  },
-
-  {
-    nama: "Guru & Tendik SD Awi Gombong",
-    jumlah: 62,
-    hitungPenerima: false,
-    hitungMakan: true
-  },
-
-  {
-    nama: "PIC POSYANDU",
-    jumlah: 5,
-    hitungPenerima: false,
     hitungMakan: true
   }
 
@@ -150,13 +87,10 @@ function generateListPenerima() {
   let autocompleteInitialized = false;
   let modeMenu = "OMPRENGAN";
   let kategoriLibur = {
-    "Balita": false,
-    "Bumil & Busui": false,
-    "SD Awi Gombong": false,
-    "SD YAS": false,
-    "SMP YAS": false,
-    "SMA YAS": false
-  };
+  "Porsi Kecil": false,
+  "Porsi Besar": false
+};
+
   let kategoriData = {
     OMPRENGAN: {},
     SNACK: {}
@@ -181,29 +115,11 @@ function generateListPenerima() {
   
   // ================= DATA PENERIMA =================
   const PENERIMA_DEFAULT = {
-    "BALITA": 205,
-    "BUMIL & BUSUI": 127,
-  
-    "SD Awi Gombong": 1016,
-    "SD YAS": 186,
-  
-    "SMP YAS": 630,
-    "SMA YAS": 534,
-  
-    "Guru & Tendik SD Awi Gombong": 62,
-    "Guru & Tendik SD YAS": 17,
-    "Guru & Tendik SMP YAS": 35,
-    "Guru & Tendik SMA YAS": 37,
-  
-    "PIC POSYANDU": 5
-  };
-  
-  const KATEGORI_SEKOLAH = {
-    SD_AWI: "SD Awi Gombong",
-    SD_YAS: "SD YAS",
-    SMP: "SMP YAS",
-    SMA: "SMA YAS"
-  };
+
+  "Porsi Kecil": 1200,
+  "Porsi Besar": 1100
+
+};
   
   function setModeMenu(menu) {
     modeMenu = menu;
@@ -358,46 +274,24 @@ function generateListPenerima() {
   // ❌ HAPUS loadDatabase()
   }
   function toggleLibur(kat, checked) {
-  
-    kategoriLibur[kat] = checked;
-    window.kategoriLibur = kategoriLibur;
-  
-    if (kat === "SD Awi Gombong") {
-      kategoriLibur["SD Awi Gombong"] = checked;
-    }
-  
-    if (kat === "SD YAS") {
-      kategoriLibur["SD YAS"] = checked;
-    }
-  
-    if (kat === "SMP") {
-      kategoriLibur["SMP"] = checked;
-    }
-  
-    if (kat === "SMA") {
-      kategoriLibur["SMA"] = checked;
-    }
-  
-    /* TAMBAHKAN INI */
-    syncLiburModal();
-  
-    generateLaporan();
-  }
+
+  kategoriLibur[kat] = checked;
+
+  window.kategoriLibur = kategoriLibur;
+
+  syncLiburModal();
+
+  generateLaporan();
+}
   
   const kategoriOmprengan = [
-    "Balita",
-    "Bumil & Busui",
-    "SD 1-3",
-    "SD 4-6",
-    "SMP",
-    "SMA"
+    "Porsi Kecil",
+    "Porsi Besar"
   ];
   
   const kategoriSnack = [
-    "Balita",
-    "Bumil & Busui",
-    "Keringan Porsi Kecil",
-    "Keringan Porsi Besar"
+    "Porsi Kecil",
+    "Porsi Besar"
   ];
   
   function getKategoriAktif() {
@@ -502,25 +396,7 @@ function generateListPenerima() {
   
   // ================= AKG TARGET =================
   const AKG = {
-    "Balita": {
-      Energi: 343.75,
-      Protein: 5.75,
-      Lemak: 12,
-      Karbohidrat: 54.5,
-      Kalsium: 206.25,
-      Serat: 5
-    },
-  
-    "Bumil & Busui": {
-      Energi: 712.5,
-      Protein: 21,
-      Lemak: 23.4,
-      Karbohidrat: 105,
-      Kalsium: 360,
-      Serat: 9.9
-    },
-  
-    "SD 1-3": {
+    "Porsi Kecil": {
       Energi: 412.5,
       Protein: 10,
       Lemak: 13.75,
@@ -529,16 +405,7 @@ function generateListPenerima() {
       Serat: 5.75
     },
   
-    "SD 4-6": {
-      Energi: 585,
-      Protein: 15.9,
-      Lemak: 19.5,
-      Karbohidrat: 87,
-      Kalsium: 360,
-      Serat: 8.1
-    },
-  
-    "SMP": {
+    "Porsi Besar": {
       Energi: 667.5,
       Protein: 20.4,
       Lemak: 22.5,
@@ -546,20 +413,7 @@ function generateListPenerima() {
       Kalsium: 360,
       Serat: 9.6
     },
-  
-    "SMA": {
-      Energi: 712.5,
-      Protein: 21,
-      Lemak: 23.4,
-      Karbohidrat: 105,
-      Kalsium: 360,
-      Serat: 9.9
-    }
   };
-  
-  // ================= MAPPING AKG SNACK =================
-  AKG["Keringan Porsi Kecil"] = AKG["SD 1-3"];
-  AKG["Keringan Porsi Besar"] = AKG["SMP"];
   
   // ================= LOAD DATABASE =================
   async function loadDatabase() {
@@ -929,14 +783,8 @@ function generateListPenerima() {
   
         // ================= SIMPAN GIZI UNTUK CAPTION =================
         const mapCaption = {
-          "Balita": "balita",
-          "Bumil & Busui": "bumil",
-          "SD 1-3": "sd1_3",
-          "SD 4-6": "sd4_6",
-          "SMP": "smp",
-          "SMA": "sma",
-          "Keringan Porsi Kecil": "kecil",
-          "Keringan Porsi Besar": "besar"
+          "Porsi Kecil": "kecil",
+          "Porsi Besar": "besar"
         };
   
         const keyCaption = mapCaption[kat];
@@ -953,16 +801,17 @@ function generateListPenerima() {
   
         // ================= SIMPAN TOTAL GIZI KE SPREADSHEET =================
         const keyMap = {
-          "Balita": menu === "OMPRENGAN" ? "omprengan_balita" : "snack_balita",
-          "Bumil & Busui": menu === "OMPRENGAN" ? "omprengan_bumil" : "snack_bumil",
-          "SD 1-3": "omprengan_sd1_3",
-          "SD 4-6": "omprengan_sd4_6",
-          "SMP": "omprengan_smp",
-          "SMA": "omprengan_sma",
-          "Keringan Porsi Kecil": "snack_kecil",
-          "Keringan Porsi Besar": "snack_besar"
+          "Porsi Kecil":
+            menu === "OMPRENGAN"
+              ? "omprengan_kecil"
+              : "snack_kecil",
+        
+          "Porsi Besar":
+            menu === "OMPRENGAN"
+              ? "omprengan_besar"
+              : "snack_besar"
         };
-  
+        
         const key = keyMap[kat];
   
         if (key) {
@@ -1339,41 +1188,37 @@ function generateListPenerima() {
   renderEditorPenerima();
 };
   
-  function sdSemuaLibur() {
-    return kategoriLibur["SD Awi Gombong"] && kategoriLibur["SD YAS"];
-  }
-  
   function hitungPenerimaFinal() {
-  
-    let data = {
-      "BALITA": kategoriLibur["Balita"] ? 0 : 205,
-      "BUMIL & BUSUI": kategoriLibur["Bumil & Busui"] ? 0 : 127,
-  
-      "SD Awi Gombong": kategoriLibur["SD Awi Gombong"] ? 0 : 1016,
-      "SD YAS": kategoriLibur["SD YAS"] ? 0 : 186,
-  
-      "SMP YAS": kategoriLibur["SMP YAS"] ? 0 : 630,
-      "SMA YAS": kategoriLibur["SMA YAS"] ? 0 : 364,
-  
-      "Guru & Tendik SD Awi Gombong": kategoriLibur["SD Awi Gombong"] ? 0 : 62,
-      "Guru & Tendik SD YAS": kategoriLibur["SD YAS"] ? 0 : 17,
-  
-      "Guru & Tendik SMP YAS": kategoriLibur["SMP YAS"] ? 0 : 35,
-      "Guru & Tendik SMA YAS": kategoriLibur["SMA YAS"] ? 0 : 37
-    };
-  
-    let picPosyandu = 5;
-  
-    if (kategoriLibur["Balita"] && kategoriLibur["Bumil & Busui"]) {
-      picPosyandu = 0;
-    }
-  
-    data["PIC POSYANDU"] = picPosyandu;
-  
-    let total = Object.values(data).reduce((a,b)=>a+b,0);
-  
-    return { data, total };
-  }
+
+  let data = {
+
+    "Porsi Kecil":
+      kategoriLibur["Porsi Kecil"]
+        ? 0
+        : (
+            dataPenerima.find(
+              x => x.nama === "Porsi Kecil"
+            )?.jumlah || 0
+          ),
+
+    "Porsi Besar":
+      kategoriLibur["Porsi Besar"]
+        ? 0
+        : (
+            dataPenerima.find(
+              x => x.nama === "Porsi Besar"
+            )?.jumlah || 0
+          )
+
+  };
+
+  let total =
+    Object.values(data)
+      .reduce((a,b)=>a+b,0);
+
+  return { data, total };
+}
+
   function generateCaptionHarian() {
 
   const jumlahPenerima =
@@ -1538,22 +1383,23 @@ function generateListPenerima() {
   }
   
   function prosesGenerate() {
-    const dataLibur = {
-      balita: document.getElementById("liburBalita").checked,
-      bumil: document.getElementById("liburBumil").checked,
-      sd: document.getElementById("liburSD").checked,
-      smp: document.getElementById("liburSMP").checked,
-      sma: document.getElementById("liburSMA").checked,
-    };
-  
-    document.getElementById("modalLibur").style.display = "none";
-  
-    buatLaporan(
-      window.generateJenis,
-      window.generateKategori,
-      dataLibur // 🔥 ikut diganti
-    );
-  }
+
+  const dataLibur = {
+    kecil:
+      document.getElementById("liburSD").checked,
+
+    besar:
+      document.getElementById("liburSMP").checked,
+  };
+
+  document.getElementById("modalLibur").style.display = "none";
+
+  buatLaporan(
+    window.generateJenis,
+    window.generateKategori,
+    dataLibur
+  );
+}
   
   /* ===============================
      TAB LEVEL 1
@@ -1622,24 +1468,12 @@ window.copyCaptionWA = function () {
   // SYNC STATUS LIBUR
   // =========================
 
-  kategoriLibur["Balita"] =
-    document.getElementById("libur_balita").checked;
+  kategoriLibur["Porsi Kecil"] =
+    document.getElementById("liburSD").checked;
 
-  kategoriLibur["Bumil & Busui"] =
-    document.getElementById("libur_bumil").checked;
-
-  kategoriLibur["SD YAS"] =
-    document.getElementById("libur_sdyas").checked;
-
-  kategoriLibur["SMP YAS"] =
-    document.getElementById("libur_smpyas").checked;
-
-  kategoriLibur["SMA YAS"] =
-    document.getElementById("libur_smayas").checked;
-
-  kategoriLibur["SDN Awi Gombong"] =
-    document.getElementById("libur_awig").checked;
-
+  kategoriLibur["Porsi Besar"] =
+    document.getElementById("liburSMP").checked;
+    
   window.kategoriLibur = kategoriLibur;
 
   // =========================
@@ -1839,19 +1673,20 @@ Dokumentasi terlampir.
   
   // ================= MODAL LIBUR =================
   function bukaModalLibur() {
-    const modal = document.getElementById("modalLibur");
-    if (!modal) return;
-  
-    modal.style.display = "flex";
-  
-    document.getElementById("libur_balita").checked = kategoriLibur["Balita"] || false;
-    document.getElementById("libur_bumil").checked = kategoriLibur["Bumil & Busui"] || false;
-    document.getElementById("libur_awig").checked = kategoriLibur["SD Awi Gombong"] || false;
-    document.getElementById("libur_sdyas").checked = kategoriLibur["SD YAS"] || false;
-    document.getElementById("libur_smpyas").checked = kategoriLibur["SMP YAS"] || false;
-    document.getElementById("libur_smayas").checked = kategoriLibur["SMA YAS"] || false;
-  
-  }
+
+  const modal =
+    document.getElementById("modalLibur");
+
+  if (!modal) return;
+
+  modal.style.display = "flex";
+
+  document.getElementById("liburSD").checked =
+    kategoriLibur["Porsi Kecil"] || false;
+
+  document.getElementById("liburSMP").checked =
+    kategoriLibur["Porsi Besar"] || false;
+}
   
   function tutupModalLibur() {
     const modal = document.getElementById("modalLibur");
@@ -1876,17 +1711,8 @@ Dokumentasi terlampir.
       window.jumlahMakan = total;
   
     const totalPenerima =
-      data.balita +
-      data.bumil +
-      data.sdyas +
-      data.smpyas +
-      data.smayas +
-      data.awig +
-      data.guru_sd +
-      data.guru_smp +
-      data.guru_sma +
-      data.guru_awig +
-      data.pic;
+      data["Porsi Kecil"] +
+      data["Porsi Besar"];
   
     const jumlahMakan = totalPenerima;
   
@@ -1910,13 +1736,10 @@ Dokumentasi terlampir.
   const liburData = window.kategoriLibur || {};
   
   const libur = {
-    balita: liburData["Balita"] || false,
-    bumil: liburData["Bumil & Busui"] || false,
-    sd: sdSemuaLibur(),
-    smp: liburData["SMP YAS"] || false,
-    sma: liburData["SMA YAS"] || false
+    kecil: kategoriLibur["Porsi Kecil"] || false,
+    besar: kategoriLibur["Porsi Besar"] || false
   };
-  
+    
   const tanggal = getTanggalLengkap();
   
   const menuInputs = document.querySelectorAll("#menuContainer .input-menu");
@@ -1940,23 +1763,11 @@ ${menuText}
   
 const gizi = window.hasilGizi.OMPRENGAN || {};
   
-if (!libur.balita)
-caption += blokGizi("🥗 *Analisis Nilai Gizi Balita* 🥗", gizi.balita);
+if (!libur.kecil)
+caption += blokGizi("🥗 *Analisis Nilai Porsi Kecil* 🥗", gizi.kecil);
   
-if (!libur.bumil)
-caption += blokGizi("🥗 *Analisis Nilai Gizi Bumil & Busui* 🥗", gizi.bumil);
-  
-if (!libur.sd)
-caption += blokGizi("🥗 *Analisis Nilai Gizi SD 1-3* 🥗", gizi.sd1_3);
-  
-if (!libur.sd)
-caption += blokGizi("🥗 *Analisis Nilai Gizi SD 4-6* 🥗", gizi.sd4_6);
-  
-if (!libur.smp)
-caption += blokGizi("🥗 *Analisis Nilai Gizi SMP* 🥗", gizi.smp);
-  
-if (!libur.sma)
-caption += blokGizi("🥗 *Analisis Nilai Gizi SMA* 🥗", gizi.sma);
+if (!libur.besar)
+caption += blokGizi("🥗 *Analisis Nilai Gizi Bumil & Busui* 🥗", gizi.besar);
   
 const outputBox = document.getElementById("captionOutput");
 if (outputBox) outputBox.value = rapikanTeks(caption);
@@ -1964,12 +1775,11 @@ if (outputBox) outputBox.value = rapikanTeks(caption);
   
   function prosesGenerateLaporan() {
   
-  kategoriLibur["Balita"] = document.getElementById("libur_balita").checked;
-    kategoriLibur["Bumil & Busui"] = document.getElementById("libur_bumil").checked;
-    kategoriLibur["SD Awi Gombong"] = document.getElementById("libur_awig").checked;
-    kategoriLibur["SD YAS"] = document.getElementById("libur_sdyas").checked;
-    kategoriLibur["SMP YAS"] = document.getElementById("libur_smpyas").checked;
-    kategoriLibur["SMA YAS"] = document.getElementById("libur_smayas").checked;
+  kategoriLibur["Porsi Kecil"] =
+    document.getElementById("liburSD").checked;
+
+  kategoriLibur["Porsi Besar"] =
+    document.getElementById("liburSMP").checked;
   
     tutupModalLibur();
   
@@ -2027,13 +1837,12 @@ if (outputBox) outputBox.value = rapikanTeks(caption);
     const kategoriLibur = window.kategoriLibur || {};
     
     const libur = {
-    balita: kategoriLibur["Balita"] || false,
-    bumil: kategoriLibur["Bumil & Busui"] || false,
-    sd13: kategoriLibur["SD 1-3"] || false,
-    sd46: kategoriLibur["SD 4-6"] || false,
-    smp: kategoriLibur["SMP"] || false,
-    sma: kategoriLibur["SMA"] || false
-  };
+      kecil:
+        kategoriLibur["Porsi Kecil"] || false,
+    
+      besar:
+        kategoriLibur["Porsi Besar"] || false
+    };
     
     const gizi = window.hasilGizi.OMPRENGAN || {};
   
@@ -2046,23 +1855,11 @@ ${menuText}
 ⚖️ Kandungan Gizi (per porsi):
 `;
   
-if (!libur.balita)
-caption += blokGizi("Analisis Nilai Gizi Balita", gizi.balita);
-  
-if (!libur.bumil)
-caption += blokGizi("Analisis Nilai Gizi Bumil & Busui", gizi.bumil);
-  
-if (!libur.sd13)
-caption += blokGizi("Analisis Nilai Gizi SD 1-3", gizi.sd1_3);
-  
-if (!libur.sd46)
-caption += blokGizi("Analisis Nilai Gizi SD 4-6", gizi.sd4_6);
-  
-if (!libur.smp)
-caption += blokGizi("Analisis Nilai Gizi SMP", gizi.smp);
-  
-if (!libur.sma)
-caption += blokGizi("Analisis Nilai Gizi SMA", gizi.sma);
+if (!libur.kecil)
+caption += blokGizi("Analisis Nilai Gizi Porsi Kecil", gizi.kecil);
+
+if (!libur.besar)
+caption += blokGizi("Analisis Nilai Gizi Porsi Besar", gizi.besar);
   
 caption += `
 🌿 “Makan bergizi, tubuh berenergi!”
@@ -2088,20 +1885,18 @@ window.captionOmprengan = caption.trim(); // 🔥 TAMBAHKAN
 ⚖️ Kandungan Gizi (per porsi):
 `;
   
-if (!kategoriLibur["Balita"]) {
-caption += blokGizi("Analisis Nilai Gizi Balita", gizi.balita);
+if (!kategoriLibur["Porsi Kecil"]) {
+  caption += blokGizi(
+    "Analisis Nilai Gizi Porsi Kecil",
+    gizi.kecil
+  );
 }
-  
-if (!kategoriLibur["Bumil & Busui"]) {
-caption += blokGizi("Analisis Nilai Gizi Bumil & Busui", gizi.bumil);
-}
-  
-if (!kategoriLibur["Keringan Porsi Kecil"] && gizi.kecil) {
-caption += blokGizi("Analisis Nilai Gizi Keringan Sekolah Kecil", kecil);
-}
-  
-if (!kategoriLibur["Keringan Porsi Besar"] && gizi.besar) {
-caption += blokGizi("Analisis Nilai Gizi Keringan Sekolah Besar", besar);
+
+if (!kategoriLibur["Porsi Besar"]) {
+  caption += blokGizi(
+    "Analisis Nilai Gizi Porsi Besar",
+    gizi.besar
+  );
 }
   
 caption += `
@@ -2360,18 +2155,6 @@ function kirimSpreadsheet() {
     row++;
   
     // =======================
-    // 🎨 WARNA PER KATEGORI
-    // =======================
-    const warnaKategori = {
-      BALITA: "#d1fae5",
-      "BUMIL & BUSUI": "#fef3c7",
-      "SD 1-3": "#dbeafe",
-      "SD 4-6": "#e9d5ff",
-      SMP: "#fee2e2",
-      SMA: "#fce7f3"
-    };
-  
-    // =======================
     // 🧪 DATA + TOTAL
     // =======================
     let total = {
@@ -2565,15 +2348,11 @@ function kirimSpreadsheet() {
   }
   
   function syncLiburModal() {
-  
-    const map = {
-      "Balita": "liburBalita",
-      "Bumil & Busui": "liburBumil",
-      "SD 1-3": "liburSD",
-      "SD 4-6": "liburSD",
-      "SMP": "liburSMP",
-      "SMA": "liburSMA"
-    };
+
+  const map = {
+    "Porsi Kecil": "liburSD",
+    "Porsi Besar": "liburSMP"
+  };
   
     Object.keys(map).forEach(kat => {
   
@@ -2971,16 +2750,13 @@ function ambilSemuaMenu() {
 }
 
 function getBeratNasiByKategori(kategori, beratDefault) {
+
   if (!kategori) return beratDefault;
 
   const kat = kategori.toLowerCase();
 
-  if (kat.includes("balita")) return 80;
-  if (kat.includes("bumil")) return 200;
-  if (kat.includes("busui")) return 200;
-  if (kat.includes("sma")) return 200;
-  if (kat.includes("smp")) return 150;
-  if (kat.includes("sd")) return 100;
+  if (kat.includes("kecil")) return 100;
+  if (kat.includes("besar")) return 150;
 
   return beratDefault;
 }
