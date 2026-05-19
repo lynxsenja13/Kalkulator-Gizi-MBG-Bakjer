@@ -1764,10 +1764,10 @@ ${menuText}
 const gizi = window.hasilGizi.OMPRENGAN || {};
   
 if (!libur.kecil)
-caption += blokGizi("🥗 *Analisis Nilai Porsi Kecil* 🥗", gizi.kecil);
+caption += blokGizi("🥗 *Analisis Nilai Gizi Porsi Kecil* 🥗", gizi.kecil);
   
 if (!libur.besar)
-caption += blokGizi("🥗 *Analisis Nilai Gizi Besar* 🥗", gizi.besar);
+caption += blokGizi("🥗 *Analisis Nilai Gizi Porsi Besar* 🥗", gizi.besar);
   
 const outputBox = document.getElementById("captionOutput");
 if (outputBox) outputBox.value = rapikanTeks(caption);
