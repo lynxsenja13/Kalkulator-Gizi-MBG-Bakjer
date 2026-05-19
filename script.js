@@ -1216,11 +1216,11 @@ function generateListPenerima() {
       SPPG KOTA BANDUNG
     </h2>
     <h3 style="margin:0; font-size:14px; font-weight:bold;">
-      CIBEUNYING KIDUL - CICADAS
+      SUKAGALIH SUKAJADI 09
     </h3>
 
     <p style="margin:2px 0; font-size:12px;">
-      Jl. Brigjen Katamso, Cihaur Geulis, Kec. Cibeunying Kidul, Kota Bandung
+      Jl. Babakan Jeruk II No.7, Sukagalih, Kec. Sukajadi, Kota Bandung, Jawa Barat
     </p>
 
     <p style="margin:2px 0; font-size:12px;">
@@ -1393,19 +1393,19 @@ function generateListPenerima() {
   const menuList =
     ambilMenuUntukLaporan().join("\n");
     
-  const caption = `Yth. Dandim 0618/Kota Bandung
-  Cc. Pasiter Kodim 0618/Kota Bandung
+  const caption = `Yth.
+  Cc.
   
-  Selamat Pagi Komandan,
+  Selamat Pagi,
   Izin melaporkan, pada hari ${tanggal} telah dilaksanakan kegiatan Pembagian Makan Bergizi Gratis operasional Unit SPPG Khusus/Hybrid.
   
-  A. SPPG : Yayasan Pangan Mandiri Barokah Dapur Cicadas 01
-  B. Lokasi : Jalan Brigjen Katamso RT. 10 RW. 13 Kel. Cicadas Kec. Cibeunying Kidul Kota Bandung.
+  A. SPPG : 
+  B. Lokasi : 
   C. Personel :
-  1. Kepala SPPG/No tlp : Tata Dhea Wimala/087892330960
+  1. Kepala SPPG/No tlp : 
   2. Ahli Gizi/No tlp : Aliyah Khairunnisa Syafitri/089664825252
-  3. Akuntan/No tlp : Febrianto/082121312500
-  4. Jml Karyawan : 44
+  3. Akuntan/No tlp : 
+  4. Jml Karyawan : 
   
   D. Jumlah penerima sebanyak *${jumlahPenerima}* orang.
 
@@ -1683,14 +1683,14 @@ Cc. Pasiter Kodim 0618/Kota Bandung
 Selamat Pagi Komandan,
 Izin melaporkan, pada hari ${tanggal} telah dilaksanakan kegiatan Pembagian Makan Bergizi Gratis operasional Unit SPPG Khusus/Hybrid.
 
-A. SPPG : Yayasan Pangan Mandiri Barokah Dapur Cicadas 01
-B. Lokasi : Jalan Brigjen Katamso RT. 10 RW. 13 Kel. Cicadas Kec. Cibeunying Kidul Kota Bandung.
+A. SPPG : 
+B. Lokasi : 
 
 C. Personel :
-1. Kepala SPPG/No tlp : Tata Dhea Wimala/087892330960
+1. Kepala SPPG/No tlp : 
 2. Ahli Gizi/No tlp : Aliyah Khairunnisa Syafitri/089664825252
-3. Akuntan/No tlp : Febrianto/082121312500
-4. Jml Karyawan : 44
+3. Akuntan/No tlp : 
+4. Jml Karyawan : 
 
 D. Jumlah penerima sebanyak *${jumlahPenerima}* orang.
 
@@ -2067,7 +2067,7 @@ caption += blokGizi("Analisis Nilai Gizi SMA", gizi.sma);
 caption += `
 🌿 “Makan bergizi, tubuh berenergi!”
   
-#SPPGCicadas01 #MakanBergiziGratis #MBG #MakanSehat #GiziSeimbang
+#SPPGSukagalihSukajadi09 #MakanBergiziGratis #MBG #MakanSehat #GiziSeimbang
 `;
   
 document.getElementById("captionOutput").value = rapikanTeks(caption);
@@ -2107,7 +2107,7 @@ caption += blokGizi("Analisis Nilai Gizi Keringan Sekolah Besar", besar);
 caption += `
 🌿 “Makan bergizi, tubuh berenergi!”
   
-#SPPGCicadas01 #MakanBergiziGratis #MBG #MakanSehat #GiziSeimbang
+#SPPGSukagalihSukajadi09 #MakanBergiziGratis #MBG #MakanSehat #GiziSeimbang
 `;
   
 document.getElementById("captionOutput").value = rapikanTeks(caption);
@@ -2313,7 +2313,7 @@ function kirimSpreadsheet() {
     // =======================
     // 🟦 JUDUL
     // =======================
-    sheet.getRange("A1").setValue("LAPORAN MENU MBG SPPG CICADAS 01");
+    sheet.getRange("A1").setValue("LAPORAN MENU MBG SPPG SUKAGALIH SUKAJADI 09");
     sheet.getRange("A2").setValue("Tanggal: " + data.tanggal);
   
     sheet.getRange("A1").setFontSize(14).setFontWeight("bold");
